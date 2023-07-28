@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sezon_app/app/modules/home/views/widgets/build_order_widget.dart';
-import 'package:sezon_app/utils/extensions/sized_box_extension.dart';
+import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 
 class CompletedOrders extends StatelessWidget {
   const CompletedOrders({

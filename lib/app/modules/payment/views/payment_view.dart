@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/auth/views/widgets/app_elevation_button.dart';
 import 'package:sezon_app/app/modules/payment/widgets/payment_data_widget.dart';
 import 'package:sezon_app/app/modules/payment/widgets/payment_widget.dart';
-import 'package:sezon_app/core/shared_widget/app_text.dart';
 
+import '../../../core/shared_widget/app_text.dart';
 import '../controllers/payment_controller.dart';
 import '../widgets/add_details_produt_widget.dart';
 import '../widgets/address_widget.dart';

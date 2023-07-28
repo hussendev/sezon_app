@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/home/controllers/home_controller.dart';
-import 'package:sezon_app/utils/extensions/sized_box_extension.dart';
+import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 
-import '../../../../../models/category.dart';
+import '../../models/category.dart';
 import 'build_category.dart';
 
 class ShowCategories extends StatelessWidget {

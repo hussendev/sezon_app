@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/home/controllers/home_controller.dart';
-import 'package:sezon_app/core/shared_widget/empty_widget.dart';
-import 'package:sezon_app/utils/extensions/sized_box_extension.dart';
+import '../../../../core/shared_widget/app_text.dart';
+import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 
+import '../../../../core/shared_widget/empty_widget.dart';
 import '../../../product/widgets/product_widget.dart';
 import '../widgets/build_category.dart';
 

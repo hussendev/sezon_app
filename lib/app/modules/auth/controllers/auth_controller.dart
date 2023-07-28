@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:sezon_app/services/auth/fb_auth_controller.dart';
-import 'package:sezon_app/utils/extensions/context_extenssion.dart';
+import 'package:sezon_app/app/modules/auth/services/auth/fb_auth_controller.dart';
+import 'package:sezon_app/app/utils/extensions/context_extenssion.dart';
 
-import '../../../../models/process_response.dart';
+import '../models/process_response.dart';
 
 class AuthGetXController extends GetxController {
 

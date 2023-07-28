@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../../models/category.dart';
-import '../../models/product.dart';
+import '../models/category.dart';
+import '../models/product.dart';
 
 class FBHomeController{
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;

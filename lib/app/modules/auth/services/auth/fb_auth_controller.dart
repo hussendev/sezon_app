@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:sezon_app/services/auth/fire_store_user_controller.dart';
+import 'package:sezon_app/app/modules/auth/services/auth/fire_store_user_controller.dart';
 
 import '../../models/process_response.dart';
 

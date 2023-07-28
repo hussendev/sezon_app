@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:sezon_app/models/product.dart';
+
+
+import '../../home/models/product.dart';
 
 class FavoriteGetXController extends GetxController {
   //TODO: Implement FavoriteController

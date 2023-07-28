@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sezon_app/app/modules/product/widgets/product_widget.dart';
-import 'package:sezon_app/models/product.dart';
+
+
+import '../../home/models/product.dart';
 
 class ShowProducts extends StatelessWidget {
    ShowProducts({

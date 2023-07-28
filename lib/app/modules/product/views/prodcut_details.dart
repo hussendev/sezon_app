@@ -6,10 +6,9 @@ import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/favorite/controllers/favorite_controller.dart';
 import 'package:sezon_app/app/modules/home/controllers/home_controller.dart';
 import 'package:sezon_app/app/routes/app_pages.dart';
-import 'package:sezon_app/core/shared_widget/app_text.dart';
-import 'package:sezon_app/utils/extensions/sized_box_extension.dart';
-
-import '../../../../models/product.dart';
+import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
+import '../../../core/shared_widget/app_text.dart';
+import '../../home/models/product.dart';
 import '../widgets/product_widget.dart';
 
 class ProductDetails extends StatelessWidget {
@@ -17,8 +16,6 @@ class ProductDetails extends StatelessWidget {
 
   var controllerFav = Get.find<FavoriteGetXController>();
   var controllerHome = Get.find<HomeGetXController>();
-  List<Product> releatedProduct = [];
-  // late Product product;
   @override
   Widget build(BuildContext context) {
     Product product = Product.fromJson(ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>);

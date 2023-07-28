@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sezon_app/app/modules/home/controllers/home_controller.dart';
-import 'package:sezon_app/utils/extensions/sized_box_extension.dart';
+import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 
-import '../../../../../core/shared_widget/app_text_field.dart';
+import '../../../../core/shared_widget/app_text_field.dart';
 import '../widgets/app_build_type.dart';
 import '../widgets/show_categories.dart';
 import '../../../product/widgets/show_products.dart';

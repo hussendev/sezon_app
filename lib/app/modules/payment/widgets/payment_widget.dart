@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/shared_widget/app_text.dart';
+import '../../../core/shared_widget/app_text.dart';
 
 class PaymentWidget extends StatelessWidget {
   PaymentWidget({

@@ -8,8 +8,9 @@ import 'package:sezon_app/app/modules/auth/views/widgets/app_elevation_button.da
 import 'package:sezon_app/app/modules/auth/views/widgets/app_text_form_field.dart';
 import 'package:sezon_app/app/modules/auth/views/widgets/top_auth_widget.dart';
 import 'package:sezon_app/app/routes/app_pages.dart';
-import 'package:sezon_app/core/shared_widget/app_text.dart';
-import 'package:sezon_app/utils/extensions/sized_box_extension.dart';
+import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
+
+import '../../../core/shared_widget/app_text.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});

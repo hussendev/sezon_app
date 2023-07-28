@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/favorite/controllers/favorite_controller.dart';
-import 'package:sezon_app/core/shared_widget/empty_widget.dart';
+import 'package:sezon_app/app/core/shared_widget/empty_widget.dart';
 
-import '../../../../../models/product.dart';
+
+import '../../models/product.dart';
 import '../widgets/build_favorite_or_notification_widget.dart';
 
 class FavoriteWidget extends StatelessWidget {

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sezon_app/app/modules/auth/views/widgets/app_text_form_field.dart';
-import 'package:sezon_app/utils/extensions/sized_box_extension.dart';
+import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 
 import '../../auth/views/widgets/app_elevation_button.dart';
 import '../../home/views/widgets/app_build_type.dart';

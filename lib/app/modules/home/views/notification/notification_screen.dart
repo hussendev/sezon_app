@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sezon_app/app/modules/home/views/widgets/build_favorite_or_notification_widget.dart';
-import 'package:sezon_app/core/shared_widget/app_text.dart';
+import '../../../../core/shared_widget/app_text.dart';
 
 class NotificationWidget extends StatelessWidget {
   const NotificationWidget({super.key});

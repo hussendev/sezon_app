@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/home/views/btn/favoriat_widget.dart';
 import 'package:sezon_app/app/modules/home/views/notification/notification_screen.dart';
-import 'package:sezon_app/models/category.dart';
-import 'package:sezon_app/models/product.dart';
-import 'package:sezon_app/services/home/fb_home_controller.dart';
+import 'package:sezon_app/app/modules/home/models/category.dart';
+import 'package:sezon_app/app/modules/home/home/fb_home_controller.dart';
 
+import '../models/product.dart';
 import '../views/btn/category_widget.dart';
 import '../views/btn/home_widget.dart';
 import '../views/btn/order_widget.dart';

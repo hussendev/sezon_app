@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/home/views/notification/notification_screen.dart';
 
-import '../../views/core/lunch_screen.dart';
+import '../modules/auth/views/lunch_screen.dart';
 import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/views/login.dart';
 import '../modules/favorite/bindings/favorite_binding.dart';

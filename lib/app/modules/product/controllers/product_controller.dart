@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 
-import '../../../../models/product.dart';
 
 class ProductGetXController extends GetxController {
   //TODO: Implement ProductController
