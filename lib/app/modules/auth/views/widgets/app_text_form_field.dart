@@ -6,37 +6,46 @@ class AppTextFormField extends StatelessWidget {
     required this.textEditingController,
     required this.label,
     this.keyboardType,
-    required this.validator,
+    this.hint='',
+    this.suffixIcon,
+    this.prefixIcon,
+     this.validator,
   });
 
   final TextEditingController textEditingController;
   final String label;
+  final String? hint;
   final TextInputType? keyboardType;
-  final String? Function(String? v) validator;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
+  final String? Function(String? v)? validator;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: TextFormField(
-        validator: validator,
-        controller: textEditingController,
-        cursorColor: Colors.redAccent,
-        keyboardType: keyboardType,
-        decoration: InputDecoration(
-          label: Text(
-            label,
-            style: const TextStyle(color: Colors.black54),
-          ),
-          border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.redAccent, width: 1.5),
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-          ),
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black26, width: 1.5),
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-          ),
+    return TextFormField(
+      validator: validator,
+      controller: textEditingController,
+      cursorColor: Colors.redAccent,
+      keyboardType: keyboardType,
+      decoration:  InputDecoration(
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon:suffixIcon,
+        prefixIcon:prefixIcon ,
+        floatingLabelStyle: TextStyle(color: Colors.redAccent),
+
+        labelText: label,
+        // label: Text(,style: const TextStyle(color: Colors.grey),),
+        hintText:hint ,
+        hintStyle: const TextStyle(color: Colors.grey),
+        border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.redAccent, width: 1.5),
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+        ),
+        enabledBorder:  OutlineInputBorder(
+          borderSide:BorderSide(color: Colors.grey.shade200, width: 1.5),
+
+          borderRadius: const BorderRadius.all(Radius.circular(5)),
         ),
       ),
     );

@@ -6,10 +6,10 @@ import 'package:sezon_app/app/routes/app_pages.dart';
 
 import 'firebase_options.dart';
 
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
 
-  Firebase.initializeApp(
+ await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               elevation: 0,
               backgroundColor: Colors.transparent,
-              iconTheme: IconThemeData(color: Colors.black),
+              iconTheme: const IconThemeData(color: Colors.black),
               titleTextStyle: TextStyle(
                 color: Colors.red,
                 fontSize: 18.sp,
@@ -47,18 +47,7 @@ class MyApp extends StatelessWidget {
           ),
             initialRoute: AppPages.INITIAL,
             getPages: AppPages.routes,
-            // routes: ,
 
-          // initialRoute: '/lunch_screen',
-          // // home: const LunchScreen(),
-          // routes: {
-          //   '/lunch_screen': (context) => const LunchScreen(),
-          //   '/login_screen': (context) => const LoginScreen(),
-          //   '/home_screen': (context) =>  HomeScreen(),
-          //   '/notification_screen': (context) => const NotificationWidget(),
-          //   '/product_details_screen': (context) => const ProductDetails(),
-          //
-          // },
         );
       },
     );

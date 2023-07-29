@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/auth/services/auth/fb_auth_controller.dart';
 import 'package:sezon_app/app/utils/extensions/context_extenssion.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import '../models/process_response.dart';
 
@@ -9,9 +10,14 @@ class AuthGetXController extends GetxController {
 
   final FbAuthController _authController = FbAuthController();
   RxBool loading = false.obs;
+  final TextEditingController emailController = TextEditingController(text: 'admin@gmail.com');
+  final TextEditingController passwordController = TextEditingController(text: '123456');
+  final key = GlobalKey<FormState>();
 
   // Future<>
-
+  User get user => _authController.user;
+  // FirebaseAuth get auth => _authController.auth;
+  // set user(FirebaseUser value) => _authController.value = value;
     Future<bool> signIn({required String email , required String password,required BuildContext context})async{
       loading.value=true;
     ProcessResponse processResponse= await _authController.signIn(email: email, password: password);
@@ -25,6 +31,9 @@ class AuthGetXController extends GetxController {
     return processResponse.success;
 
     }
+
+
+
 
     Future<bool> createAccount ({
       required String email,
@@ -43,6 +52,34 @@ class AuthGetXController extends GetxController {
       loading.value=false;
       return processResponse.success;
     }
+
+
+    Future<bool> signOut() async{
+      loading.value=true;
+      bool signOut = await _authController.signOut();
+
+      if(signOut){
+        loading.value=false;
+      }else{
+        Get.snackbar("Error","Error occurred");
+      }
+      loading.value=false;
+      return signOut;
+    }
+
+    Future<bool> forgetPassword({required String email,required BuildContext context}) async{
+      loading.value=true;
+      ProcessResponse processResponse= await _authController.forgetPassword(email: email);
+
+      if(processResponse.success){
+        loading.value=false;
+      }else{
+        context.showSnackBar(message: processResponse.message,error: true);
+      }
+      loading.value=false;
+      return processResponse.success;
+    }
+
 
 
 }

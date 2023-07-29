@@ -3,7 +3,8 @@ import 'package:sezon_app/app/modules/home/views/widgets/complete_orders.dart';
 import 'package:sezon_app/app/modules/home/views/widgets/pending_orders.dart';
 
 class OrderWidget extends StatefulWidget {
-  const OrderWidget({super.key});
+   OrderWidget({super.key, this.isAdmin=false});
+  bool isAdmin;
   @override
   State<OrderWidget> createState() => _MyOrderWidgetState();
 }

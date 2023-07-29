@@ -8,31 +8,26 @@ class NotificationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: AppText(text: 'Notification', fontSize: 18.sp, fontWeight: FontWeight.bold),
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: ListView.separated(
-          physics: const BouncingScrollPhysics(),
-          itemCount: 25,
-          itemBuilder: (context, index) {
-            return BuildFavoriteOrNotificaitonWidget(
-              isFavorite: false,
-              product: null,
-            );
-            // return Text('data');
-          },
-          separatorBuilder: (context, index) {
-            return Divider(
-              height: 20.h,
-              color: Colors.grey[300],
-              endIndent: 20.w,
-              indent: 20.w,
-            );
-          },
-        ),
+    return  Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      child: ListView.separated(
+        physics: const BouncingScrollPhysics(),
+        itemCount: 25,
+        itemBuilder: (context, index) {
+          return BuildFavoriteOrNotificaitonWidget(
+            isFavorite: false,
+            product: null,
+          );
+          // return Text('data');
+        },
+        separatorBuilder: (context, index) {
+          return Divider(
+            height: 20.h,
+            color: Colors.grey[300],
+            endIndent: 20.w,
+            indent: 20.w,
+          );
+        },
       ),
     );
   }

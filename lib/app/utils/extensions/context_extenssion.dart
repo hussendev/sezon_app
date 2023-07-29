@@ -14,15 +14,15 @@ extension contextExtenssion on BuildContext {
         duration: const Duration(seconds: 2),
         backgroundColor: error ? Colors.red.shade800 : Colors.green.shade800,
         dismissDirection: DismissDirection.horizontal,
-        title:  message.tr,
+        // title:  message.tr,
+        // message: '',
+        messageText: AppText(
+          text: message,
+          color: Colors.white,
+          fontSize: 16.sp,
+          fontWeight: FontWeight.w600,
+        )
       )
-      // SnackBar(
-      //   content:,
-      //
-      //
-      //
-      //
-      // ),
     );
   }
 

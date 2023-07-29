@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sezon_app/app/core/shared_widget/app_text.dart';
 class AppTextField extends StatelessWidget {
   const AppTextField({
     Key? key,
     required this.hinttext,
     required this.labeltext,
-    required this.prefixIcon,
-    required this.keyboardType,
-    // this.focusedBorderColor=Colors.grey,
-
+     this.prefixIcon,
+     this.keyboardType= TextInputType.text,
     this.obscuresText=false,
     required this.controller,
-    this.suffixIcon, required obscureText,
+    this.suffixIcon,
 
   }) : super(key: key);
   final String hinttext;
   final String labeltext;
-  final IconData prefixIcon;
+  final IconData? prefixIcon;
   final TextInputType keyboardType;
   // final Color focusedBorderColor;
   final TextEditingController controller;
@@ -26,29 +26,38 @@ class AppTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      style: const TextStyle(color: Colors.black),
+      // expands: true,
+      // maxLines: null,
+
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscuresText,
       decoration: InputDecoration(
-        // contentPadding: EdgeInsets.zero,
+        // labelStyle: TextStyle(color: Colors.black),
         floatingLabelBehavior: FloatingLabelBehavior.always,
+floatingLabelStyle: TextStyle(color: Colors.redAccent),
+
+// floatingLabelStyle: const TextStyle(color: Colors.black),
+
+        // contentPadding: EdgeInsets.zero,
         hintText: hinttext,
-        hintMaxLines: 1,
+        labelText: labeltext,
+        // label: AppText(text:,fontSize: 18.sp,),
         prefixIcon: Icon(prefixIcon),
-        suffixIconColor: Color(0xffF3651F),
         suffixIcon: suffixIcon ,
         enabledBorder:  buildOutlineInputBorder(),
-        focusedBorder: buildOutlineInputBorder(color:Color(0xffF3651F)),
-        // enabledBorder: buildOutlineInputBorder(color:focusedBorderColor),
-        // focusedBorder: buildOutlineInputBorder(color:focusedBorderColor),
+        focusedBorder: buildOutlineInputBorder(color:Colors.redAccent),
+
+
       ),
     );
   }
 
   OutlineInputBorder buildOutlineInputBorder({Color color = Colors.grey}) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(6.r),
       borderSide: BorderSide(color: color),
     );
   }
@@ -60,26 +69,4 @@ class AppTextField extends StatelessWidget {
 
 
 
-// TextField(
-// // keyboardType: TextInputType.number,
-// decoration: InputDecoration(
-// // labelText: 'Phone',
-// // hintText: 'Enter Your Phone Number',
-// floatingLabelBehavior: FloatingLabelBehavior.always,
-// enabledBorder: OutlineInputBorder(
-// borderRadius: BorderRadius.circular(28),
-// borderSide: BorderSide(color: Color(0xff8b8b8b)),
-// gapPadding: 10
-// ),
-// focusedBorder: OutlineInputBorder(
-// borderRadius: BorderRadius.circular(28),
-// borderSide: BorderSide(color: Color(0xff8b8b8b)),
-// gapPadding: 10
-// ),
-// suffixIcon: Icon(Icons.phone),
-//
-//
-// ),
-// ),
-//
-//
+

@@ -29,7 +29,7 @@ class HomeWidget extends StatelessWidget {
                  hinttext: 'Search',
                  keyboardType: TextInputType.text,
                  controller: TextEditingController(),
-                 obscureText: false,
+
                ),
                31.ph(),
                AppBuildType(

@@ -1,13 +1,15 @@
 import 'package:get/get.dart';
-import 'package:sezon_app/app/modules/home/views/notification/notification_screen.dart';
 
-import '../modules/auth/views/lunch_screen.dart';
+import '../modules/admin/bindings/admin_binding.dart';
+import '../modules/admin/views/admin_view.dart';
 import '../modules/auth/bindings/auth_binding.dart';
 import '../modules/auth/views/login.dart';
+import '../modules/auth/views/lunch_screen.dart';
 import '../modules/favorite/bindings/favorite_binding.dart';
 import '../modules/favorite/views/favorite_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_screen.dart';
+import '../modules/home/views/notification/notification_screen.dart';
 import '../modules/payment/bindings/payment_binding.dart';
 import '../modules/payment/views/payment_view.dart';
 import '../modules/product/bindings/product_binding.dart';
@@ -59,6 +61,11 @@ class AppPages {
       name: _Paths.NOTIFICATION,
       page: () => const NotificationWidget(),
       binding: null,
+    ),
+    GetPage(
+      name: _Paths.ADMIN,
+      page: () => const AdminView(),
+      binding: AdminBinding(),
     ),
   ];
 }

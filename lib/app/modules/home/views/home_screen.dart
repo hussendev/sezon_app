@@ -9,15 +9,15 @@ class HomeScreen extends GetView<HomeGetXController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarWidget(),
-      body: controller.widgets[controller.currentIndex],
-      bottomNavigationBar: AppBottomNavigationBar(
-        onTap: (index) {
-          controller.changeIndex(index);
-        },
-        currentIndex: controller.currentIndex,
-      ),
+    return Obx(() =>Scaffold(
+        appBar: AppBarWidget(),
+        body: controller.widgets[controller.currentIndex.value],
+        bottomNavigationBar: AppBottomNavigationBar(
+          onTap: (index) {
+            controller.changeIndex(index);
+          },
+          currentIndex: controller.currentIndex.value,
+        )),
     );
   }
 }
