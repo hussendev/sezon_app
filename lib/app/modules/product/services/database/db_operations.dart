@@ -1,9 +1,10 @@
-import 'package:smart_stor/database/db_controller.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:sezon_app/app/utils/storage/cach_helper.dart';
+
+import 'db_controller.dart';
 
 
 abstract class DbOperations<Model> {
-  final Database database = DbController().database;
+  final CacheHelper  cacheHelper = CacheHelper();
 
 
   Future<int> create(Model model);

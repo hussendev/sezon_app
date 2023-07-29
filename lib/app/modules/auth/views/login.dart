@@ -13,6 +13,15 @@ import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 import '../../../core/shared_widget/app_text.dart';
 
 class LoginScreen extends GetView<AuthGetXController> {
+  //customer user
+  // email : hussen@gmail.com
+  // password : 123456
+
+
+  //admin user
+  //i dont create admin user in database so i login useing if condition
+  // email : admin@gmail.com
+  // password : 123456
   LoginScreen({super.key});
   @override
   Widget build(BuildContext context) {
