@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:sezon_app/app/modules/home/views/btn/favoriat_widget.dart';
 
 import '../modules/admin/bindings/admin_binding.dart';
 import '../modules/admin/views/admin_view.dart';
@@ -49,7 +50,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FAVORITE,
-      page: () => const FavoriteView(),
+      page: () =>  FavoriteWidget(),
       binding: FavoriteBinding(),
     ),
     GetPage(
@@ -57,11 +58,11 @@ class AppPages {
       page: () => const PaymentView(),
       binding: PaymentBinding(),
     ),
-    GetPage(
-      name: _Paths.NOTIFICATION,
-      page: () => const NotificationWidget(),
-      binding: null,
-    ),
+    // GetPage(
+    //   name: _Paths.NOTIFICATION,
+    //   page: () => const NotificationWidget(),
+    //   binding: null,
+    // ),
     GetPage(
       name: _Paths.ADMIN,
       page: () => const AdminView(),

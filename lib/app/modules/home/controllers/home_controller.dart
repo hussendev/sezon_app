@@ -4,6 +4,7 @@ import 'package:sezon_app/app/modules/home/views/btn/favoriat_widget.dart';
 import 'package:sezon_app/app/modules/home/views/notification/notification_screen.dart';
 import 'package:sezon_app/app/modules/home/models/category.dart';
 
+import '../models/btn.dart';
 import '../models/product.dart';
 import '../services/fb_home_controller.dart';
 import '../views/btn/category_widget.dart';
@@ -28,7 +29,9 @@ class HomeGetXController extends GetxController {
   static HomeGetXController get to => Get.find();
   var currentIndex = 0.obs;
   int currentIndexInCategory = 0;
-  List<Widget> widgets = [HomeWidget(), CategoryWidget(),  OrderWidget(isAdmin: true), FavoriteWidget(), const NotificationWidget()];
+  List<BTN> widgets = [BTN(title: 'home'.tr, widget:  const HomeWidget()) ,BTN(title: 'category'.tr, widget: const CategoryWidget()) ,BTN(title: 'favorite'.tr, widget:  FavoriteWidget()),BTN(title: 'notification'.tr, widget: NotificationWidget())];
+
+  // List<Widget> widgets = [const HomeWidget(), CategoryWidget(),  OrderWidget(isAdmin: true), FavoriteWidget(), const NotificationWidget()];
 
   void changeIndex(int index) {
     currentIndex.value = index;

@@ -1,22 +1,26 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:sezon_app/app/modules/admin/controllers/admin_controller.dart';
+import 'package:sezon_app/app/modules/home/models/product.dart';
 import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 
 import '../../../../core/shared_widget/app_text.dart';
 
-class ProductAdminDetails extends StatelessWidget {
-  const ProductAdminDetails({super.key});
+class ProductAdminDetails extends GetView<AdminController> {
+   ProductAdminDetails({super.key,required this.product});
+    final Product product;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: AppText(text:' Product Details', fontSize: 20.sp, fontWeight: FontWeight.bold),
+          title: AppText(text:'Product Details', fontSize: 20.sp, fontWeight: FontWeight.bold),
           actions: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.edit),
+              icon: const Icon(Icons.edit),
             ),
 
           ],
@@ -41,37 +45,37 @@ class ProductAdminDetails extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                 ),
                 items: [
-                  for (var i = 0; i < 5; i++)
+                  for (var i = 0; i <product.images.length; i++)
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: 5.w),
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(10.r),
-                        // image: DecorationImage(
-                        //   image: NetworkImage(product.images[i]),
-                        //   fit: BoxFit.cover,
-                        // ),
+                        image: DecorationImage(
+                          image: NetworkImage(product.images[i]),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                 ],
               ),
               44.ph(),
               AppText(
-                text:'صواني مطرزة تطريز فلسطيني',
+                text:product.name,
                 fontSize: 18.sp,
                 fontWeight: FontWeight.bold,
               ),
               10.ph(),
               AppText(
-                text:'130ر.س',
+                text:'${product.price.toString()} ر.س',
                 fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.red,
               ),
               10.ph(),
               AppText(
-                text: 'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم              توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا ',
+                text: product.details,
                 fontSize: 14.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
@@ -85,7 +89,7 @@ class ProductAdminDetails extends StatelessWidget {
               ),
               5.ph(),
               AppText(
-                text: 'خشبيات',
+                text:controller.getCategoryFromId(product.categoryId).name,
                 fontSize: 12.sp,
                 color: Colors.black,
               ),
@@ -99,7 +103,7 @@ class ProductAdminDetails extends StatelessWidget {
               ),
               5.ph(),
               AppText(
-                text: ' 2021-09-09',
+                text: product.dateAdded,
                 fontSize: 12.sp,
                 color: Colors.black,
               ),
@@ -112,7 +116,7 @@ class ProductAdminDetails extends StatelessWidget {
               ),
               5.ph(),
               AppText(
-                text: '10 times',
+                text: '${product.purchaseCount} times',
                 fontSize: 12.sp,
                 color: Colors.black,
               ),

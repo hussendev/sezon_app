@@ -2,18 +2,22 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:sezon_app/app/routes/app_pages.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'package:sezon_app/app/utils/localizations/translation.dart';
+
+import 'app/routes/app_pages.dart';
+import 'app/utils/localizations/translation_contoller.dart';
+import 'app/utils/storage/cach_helper.dart';
 import 'firebase_options.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
 
  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
-
   runApp(const MyApp());
 }
 
@@ -31,6 +35,18 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Sezon App',
+          localizationsDelegates:const [
+            GlobalWidgetsLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: const [
+            Locale('ar', 'SA'),
+            Locale('en', 'US'),
+          ],
+          locale: TranslationController.initalLang,
+          fallbackLocale: const Locale('ar', 'SA'),
+          translations: Translation(),
           theme: ThemeData(
             appBarTheme: AppBarTheme(
               centerTitle: true,
@@ -47,7 +63,6 @@ class MyApp extends StatelessWidget {
           ),
             initialRoute: AppPages.INITIAL,
             getPages: AppPages.routes,
-
         );
       },
     );

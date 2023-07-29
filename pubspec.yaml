@@ -52,7 +52,8 @@ dependencies:
   #svg_reader
   flutter_svg: ^2.0.4
 
-
+  #translation
+  flutter_localization: ^0.1.13
 
 
   #ui
@@ -64,7 +65,11 @@ dependencies:
   firebase_core: ^2.15.0
   cloud_firestore: ^4.8.3
   firebase_auth: ^4.7.2
+  firebase_storage: ^11.2.5
 
+
+    #pick_image
+  image_picker: ^1.0.1
 
 
 

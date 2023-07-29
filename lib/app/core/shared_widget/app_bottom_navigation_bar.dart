@@ -1,48 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get.dart';
+import 'package:get/get.dart';
+import 'package:get/get.dart';
+import 'package:get/get.dart';
+import 'package:get/get.dart';
+import 'package:get/get.dart';
+import 'package:get/get.dart';
 
 BottomNavigationBar AppBottomNavigationBar({int currentIndex=0, Function(int index)? onTap, bool isHome=true}) {
   return BottomNavigationBar(
     type: BottomNavigationBarType.fixed,
-    currentIndex: currentIndex,
+    currentIndex:  currentIndex!=4 ?currentIndex : 0,
     onTap: onTap,
-    selectedItemColor: Colors.red,
+    selectedItemColor: currentIndex!=4 ?Colors.red : Colors.grey,
     unselectedItemColor: Colors.grey,
     showUnselectedLabels: true,
-    items: isHome ? const[
+    items: isHome ? [
       BottomNavigationBarItem(
         icon: Icon(Icons.home,),
-        label: 'Home',
+        label: 'home'.tr,
 
       ),
       BottomNavigationBarItem(
           icon:  Icon(Icons.category),
-          label: 'Category'
+          label: 'category'.tr
       ),
       BottomNavigationBarItem(
           icon:  Icon(Icons.shopping_cart_rounded),
-          label: 'Orders'
+          label: 'orders'.tr
       ),
        BottomNavigationBarItem(
           icon:  Icon(Icons.favorite),
-          label: 'Favorite'
+          label: 'favorite'.tr
       ),
-    ] :const [
+    ] : [
       BottomNavigationBarItem(
         icon: Icon(Icons.home,),
-        label: 'Home',
+        label: 'home'.tr,
 
       ),
       BottomNavigationBarItem(
           icon:  Icon(Icons.shopping_cart_rounded),
-          label: 'Orders'
+          label: 'orders'.tr
       ),
       BottomNavigationBarItem(
           icon:  Icon(Icons.notifications),
-          label: 'Notifications'
+          label: 'notification'.tr
       ),
       BottomNavigationBarItem(
           icon:  Icon(Icons.person),
-          label: 'Profile'
+          label: 'profile'.tr
       ),
     ]
   );

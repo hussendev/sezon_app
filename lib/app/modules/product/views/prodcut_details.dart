@@ -8,6 +8,7 @@ import 'package:sezon_app/app/modules/home/controllers/home_controller.dart';
 import 'package:sezon_app/app/routes/app_pages.dart';
 import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 import '../../../core/shared_widget/app_text.dart';
+import '../../../core/shared_widget/empty_widget.dart';
 import '../../home/models/product.dart';
 import '../widgets/product_widget.dart';
 
@@ -96,7 +97,7 @@ class ProductDetails extends StatelessWidget {
                       ),
                       SizedBox(
                         height: 150.h,
-                        child: ListView.separated(
+                        child: controllerHome.productsByCategory.value.isNotEmpty? ListView.separated(
                           physics: const BouncingScrollPhysics(),
                           itemCount: controllerHome.productsByCategory.value.length,
                           scrollDirection: Axis.horizontal,
@@ -112,6 +113,21 @@ class ProductDetails extends StatelessWidget {
                           separatorBuilder: (context, index) {
                             return 10.pw();
                           },
+                        ) :  Container(
+                          alignment: Alignment.center,
+                          height: 150.h,
+                          child:Column(mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                             Icon(
+                                Icons.warning,
+                                color: Colors.red,
+                                size: 50.r,
+                              ),
+                              10.ph(),
+                              AppText(text: 'No Products', fontSize: 18.sp, fontWeight: FontWeight.bold),
+                              10.ph(),
+                            ],
+                          ),
                         ),
                       ),
                       Row(

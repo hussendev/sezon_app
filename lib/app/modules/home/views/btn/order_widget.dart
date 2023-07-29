@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/home/views/widgets/complete_orders.dart';
 import 'package:sezon_app/app/modules/home/views/widgets/pending_orders.dart';
 
@@ -11,11 +12,11 @@ class OrderWidget extends StatefulWidget {
 
 class _MyOrderWidgetState extends State<OrderWidget>
     with SingleTickerProviderStateMixin {
-  static const List<Tab> myTabs = <Tab>[
+  static  List<Tab> myTabs = <Tab>[
     Tab(
-      text: 'Pending Orders',
+      text: 'pending_orders'.tr,
     ),
-    Tab(text: 'Completed Orders'),
+    Tab(text: 'completed_orders'.tr),
   ];
 
   late TabController _tabController;

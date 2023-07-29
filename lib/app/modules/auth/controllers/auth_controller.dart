@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/auth/services/auth/fb_auth_controller.dart';
 import 'package:sezon_app/app/utils/extensions/context_extenssion.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:sezon_app/app/utils/storage/cach_helper.dart';
 
 import '../models/process_response.dart';
 
@@ -23,6 +24,8 @@ class AuthGetXController extends GetxController {
     ProcessResponse processResponse= await _authController.signIn(email: email, password: password);
 
       if(processResponse.success){
+        // CacheHelper.saveData(key: 'uId', value: processResponse.data);
+        // firebase save data in local storage and get it from local storage  and i check if it is null or not in splash screen
         loading.value=false;
       }else{
         context.showSnackBar(message: processResponse.message,error: true);
@@ -31,10 +34,6 @@ class AuthGetXController extends GetxController {
     return processResponse.success;
 
     }
-
-
-
-
     Future<bool> createAccount ({
       required String email,
       required String phone,

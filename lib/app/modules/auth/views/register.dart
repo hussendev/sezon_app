@@ -40,7 +40,7 @@ class RegisterScreen extends StatelessWidget {
                           children: [
                             const TopAuthWidget(),
                             AppText(
-                              text: 'Create new account',
+                              text: 'create_new_account'.tr,
                               fontWeight: FontWeight.w700,
                               fontSize: 30.sp,
                             ),
@@ -49,11 +49,11 @@ class RegisterScreen extends StatelessWidget {
                             20.ph(),
                             AppTextFormField(
                               textEditingController: emailController,
-                              label: 'Email',
+                              label: 'email'.tr,
                               keyboardType: TextInputType.name,
                               validator: (v) {
                                 if (emailController.text.isEmpty) {
-                                  return 'email is required';
+                                  return 'email_is_required'.tr;
                                 }
                                 return null;
                               },
@@ -61,11 +61,11 @@ class RegisterScreen extends StatelessWidget {
                             20.ph(),
                             AppTextFormField(
                               textEditingController: phoneNumberController,
-                              label: 'Phone Number',
+                              label: 'phone_number'.tr,
                               keyboardType: TextInputType.phone,
                               validator: (v) {
                                 if (phoneNumberController.text.isEmpty) {
-                                  return 'Phone Number required';
+                                  return 'phone_number_required'.tr;
                                 }
                                 return null;
                               },
@@ -73,11 +73,11 @@ class RegisterScreen extends StatelessWidget {
                             20.ph(),
                             AppTextFormField(
                               textEditingController: passwordController,
-                              label: 'Password',
+                              label: 'password'.tr,
                               keyboardType: TextInputType.visiblePassword,
                               validator: (v) {
                                 if (passwordController.text.isEmpty) {
-                                  return 'please enter password';
+                                  return 'please_enter_password'.tr;
                                 }
                                 return null;
                               },
@@ -85,18 +85,18 @@ class RegisterScreen extends StatelessWidget {
                             20.ph(),
                             AppTextFormField(
                               textEditingController: confirmPasswordController,
-                              label: 'Confirm Password',
+                              label: 'confirm_password'.tr,
                               keyboardType: TextInputType.visiblePassword,
                               validator: (v) {
                                 if (confirmPasswordController.text.isEmpty) {
-                                  return 'Please Confirm Password';
+                                  return 'Please Confirm Password'.tr;
                                 }
                                 return null;
                               },
                             ),
                             30.ph(),
                             AppElevationButton(
-                              label: 'Create Account',
+                              label: 'create_account'.tr,
                               onTap: () async {
                                 if (_key.currentState!.validate()) {
                                   await createAccount(context);
@@ -114,11 +114,11 @@ class RegisterScreen extends StatelessWidget {
                             ),
                             RichText(
                               text: TextSpan(
-                                text: 'Do You Have Account ? ',
+                                text: 'do_you_have_account'.tr,
                                 style: TextStyle(color: Colors.black87, fontSize: 16.sp),
                                 children: [
                                   TextSpan(
-                                    text: 'Login',
+                                    text: 'login'.tr,
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
                                         Navigator.pop(context);

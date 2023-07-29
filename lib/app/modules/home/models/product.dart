@@ -5,6 +5,9 @@ class Product {
   dynamic price;
   List<String> images;
   String details;
+  int purchaseCount;
+  String dateAdded;
+
 
   Product({
     required this.id,
@@ -13,6 +16,8 @@ class Product {
     required this.price,
     required this.images,
     required this.details,
+    required this.purchaseCount,
+    required this.dateAdded
   });
 
   factory Product.fromJson(Map<String, dynamic> json) {
@@ -23,6 +28,8 @@ class Product {
       price: json['price'],
       images: List<String>.from(json['images']),
       details: json['details'] as String,
+      purchaseCount: json['purchase_count'] ,
+      dateAdded: json['date_added'] as String,
     );
   }
 
@@ -34,6 +41,8 @@ class Product {
     data['price'] = this.price;
     data['images'] = List<dynamic>.from(images);
     data['details'] = this.details;
+    data['purchase_count'] = this.purchaseCount;
+    data['date_added'] = this.dateAdded;
     return data;
   }
 }

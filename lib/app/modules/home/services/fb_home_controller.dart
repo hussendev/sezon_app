@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../models/category.dart';
 import '../models/product.dart';
@@ -6,6 +10,7 @@ import '../models/product.dart';
 class FBHomeController{
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   static FBHomeController instance = FBHomeController._();
+  FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
   FBHomeController._();
   factory FBHomeController() {
     return instance;
@@ -17,6 +22,46 @@ class FBHomeController{
       fromFirestore: (snapshot, _) => Product.fromJson(snapshot.data()!),
       toFirestore: (product, _) => product.toJson(),
     ).get();
+  }
+
+  Future<bool> uploadImage(File image) async {
+    try {
+      await _firebaseStorage.ref('products/${image.path}').putFile(image);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  //get image from firebase storage
+
+  Future<String> getImage(String path) async {
+    return await _firebaseStorage.ref('products/$path').getDownloadURL();
+  }
+
+  //selectImage
+  // selectImage () async {
+  //   // ignore: deprecated_member_use
+  //   var image = await ImagePicker.platform.pickImage(source: ImageSource.gallery);
+  //   return image;
+  // }
+
+  // selectImage() async {
+  //   var image = await _imagePicker.pickImage(source: ImageSource.camera);
+  //   //stor it in firebase storage
+  //
+  //
+  //   await   _firebaseStorage.ref('products/${image!.path}').putFile(File(image.name));
+  //   return image;
+  // }
+
+  Future<bool> addProduct(Product product) async {
+    try {
+      await _firebaseFirestore.collection('products').add(product.toJson());
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
   Future<QuerySnapshot<Product>> getProductsByCategory({required int categoryId,int productId=0}) async {

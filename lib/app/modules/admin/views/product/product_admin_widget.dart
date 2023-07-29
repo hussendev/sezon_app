@@ -3,21 +3,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sezon_app/app/modules/admin/views/product/product_admin_details.dart';
+import 'package:sezon_app/app/modules/home/models/product.dart';
 import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 
 import '../../../../core/shared_widget/app_text.dart';
 
 class ProductAdminWidget extends StatelessWidget {
-  const ProductAdminWidget({
+   ProductAdminWidget({
     super.key,
+     required this.product
   });
+ final Product product;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       child:  Container(
         padding: EdgeInsets.all(8.w),
-        // color: Colors.amber,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -27,11 +29,16 @@ class ProductAdminWidget extends StatelessWidget {
                 width: 50,
                 decoration: BoxDecoration(
                     color: Colors.redAccent,
+                    image: DecorationImage(
+                      image: NetworkImage(product.images[0]),
+                      fit: BoxFit.cover,
+                    ),
                     borderRadius: BorderRadius.circular(5)),
               ),
             ),
             10.pw(),
             Expanded(
+
                 flex: 5,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -40,24 +47,24 @@ class ProductAdminWidget extends StatelessWidget {
                   MainAxisAlignment.spaceEvenly,
                   children: [
                     AppText(
-                      text: 'خزف ملون',
+                      text: product.name,
                       fontSize: 12.sp,
                       fontWeight: FontWeight.bold,
                     ),
                     AppText(
                         text:
-                        'هذا النص هو مثال لنص يمكن أن يستبدل توليد هذا النص من مولد  النص العربى...',
+                        product.details,
                         fontSize: 10.sp),
                     Row(
                       children: [
                         AppText(
-                          text: '150ر.س',
+                          text: product.price.toString(),
                           fontSize: 12.sp,
                           color: Colors.red,
                         ),
                         Spacer(),
                         AppText(
-                          text: 'عمليات الشراء: 10',
+                          text: 'عمليات الشراء: ${product.purchaseCount}',
                           fontSize: 10.sp,
                         ),
                       ],
@@ -69,7 +76,7 @@ class ProductAdminWidget extends StatelessWidget {
       ),
       onTap: () {
         Get.to(
-          const ProductAdminDetails(),
+           ProductAdminDetails(product: product),
 
         );
         // Get.toNamed(Routes.PRODUCT_DETAILS, arguments: {

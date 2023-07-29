@@ -29,15 +29,15 @@ class LoginScreen extends GetView<AuthGetXController> {
                 child: Column(
                   children: [
                     const TopAuthWidget(),
-                    AppText(text: 'Login', fontSize: 30.sp, fontWeight: FontWeight.bold),
+                    AppText(text: 'login'.tr, fontSize: 30.sp, fontWeight: FontWeight.bold),
                     20.ph(),
                     AppTextFormField(
                       textEditingController: controller.emailController,
-                      label: 'Email',
+                      label: 'email'.tr,
                       keyboardType: TextInputType.name,
                       validator: (v) {
                         if (controller.emailController.text.isEmpty) {
-                          return 'email required';
+                          return 'email_required'.tr;
                         }
                         return null;
                       },
@@ -45,11 +45,11 @@ class LoginScreen extends GetView<AuthGetXController> {
                     20.ph(),
                     AppTextFormField(
                       textEditingController: controller.passwordController,
-                      label: 'Password',
+                      label: 'password'.tr,
                       keyboardType: TextInputType.name,
                       validator: (v) {
                         if (controller.passwordController.text.isEmpty) {
-                          return 'please enter password';
+                          return 'please_enter_password'.tr;
                         }
                         return null;
                       },
@@ -61,8 +61,8 @@ class LoginScreen extends GetView<AuthGetXController> {
                         children: [
                           TextButton(
                             onPressed: () {},
-                            child: const Text(
-                              'Forget Password ?',
+                            child:  Text(
+                              'forget_password'.tr,
                               style: TextStyle(color: Colors.black87),
                             ),
                           ),
@@ -71,7 +71,7 @@ class LoginScreen extends GetView<AuthGetXController> {
                     ),
                     30.ph(),
                     AppElevationButton(
-                      label: 'Login',
+                      label: 'login'.tr,
                       onTap: () async {
                         if (controller.key.currentState!.validate()) {
                           await login(context);
@@ -81,11 +81,11 @@ class LoginScreen extends GetView<AuthGetXController> {
                     30.ph(),
                     RichText(
                       text: TextSpan(
-                        text: 'Don\'t have account ?',
+                        text: 'dont_have_account'.tr,
                         style: const TextStyle(color: Colors.black87, fontSize: 16),
                         children: [
                           TextSpan(
-                            text: 'New Account',
+                            text: 'new_account'.tr,
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
                                 Navigator.push(
