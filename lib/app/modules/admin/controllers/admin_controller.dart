@@ -12,6 +12,7 @@ import 'package:sezon_app/app/modules/home/models/btn.dart';
 import 'package:sezon_app/app/modules/home/models/category.dart';
 import 'package:sezon_app/app/modules/home/views/notification/notification_screen.dart';
 
+import '../../home/models/notification.dart';
 import '../../home/models/product.dart';
 import '../../home/services/fb_home_controller.dart';
 
@@ -100,7 +101,15 @@ var loadingProductByCategory =false.obs;
   }
   Future<bool> addProduct(Product product) async {
     loading.value = true;
+    NotificationModel notification = NotificationModel(
+      body:product.details ,
+      title: product.name,
+      image:product.images.first ,date:DateTime.now().toString(), id: null
+    );
+
     var result = await fbHomeController.addProduct(product);
+     var sendNotification = await fbHomeController.addNotification(notification);
+
     loading.value = false;
     await getProducts();
     return result;

@@ -7,6 +7,7 @@ import 'package:sezon_app/app/modules/auth/views/register.dart';
 import 'package:sezon_app/app/modules/auth/views/widgets/app_elevation_button.dart';
 import 'package:sezon_app/app/modules/auth/views/widgets/app_text_form_field.dart';
 import 'package:sezon_app/app/modules/auth/views/widgets/top_auth_widget.dart';
+import 'package:sezon_app/app/modules/home/services/notifications_helper.dart';
 import 'package:sezon_app/app/routes/app_pages.dart';
 import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 
@@ -43,7 +44,7 @@ class LoginScreen extends GetView<AuthGetXController> {
                     AppTextFormField(
                       textEditingController: controller.emailController,
                       label: 'email'.tr,
-                      keyboardType: TextInputType.name,
+                      keyboardType: TextInputType.emailAddress,
                       validator: (v) {
                         if (controller.emailController.text.isEmpty) {
                           return 'email_required'.tr;
@@ -83,6 +84,7 @@ class LoginScreen extends GetView<AuthGetXController> {
                       label: 'login'.tr,
                       onTap: () async {
                         if (controller.key.currentState!.validate()) {
+                           // NotificationHelper.sendNotification(context, "fkEMQPHyRPS_LjeAFXQanP:APA91bH-C0bAVC9zwnIBqzUKqQP654IkU7q5x8iohnOKEYuG9JIYQZAMACVMemYo7GZWx7T5BINWNnfLRrcvgvv0s4adr7X8XcYGZm1crZKmJFTTA-z8xc83xc2rC36alJ63nr_B-Agj", "Hello", "Test");
                           await login(context);
                         }
                       },
@@ -120,6 +122,7 @@ class LoginScreen extends GetView<AuthGetXController> {
   }
 
   login(BuildContext context) async {
+
 
     if(controller.emailController.text.contains( 'admin')){
       Get.offAllNamed(Routes.ADMIN);

@@ -10,6 +10,9 @@ class AppTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.prefixIcon,
      this.validator,
+     this.onChanged,
+     this.onSaved,
+      this.onFieldSubmitted,
   });
 
   final TextEditingController textEditingController;
@@ -19,6 +22,9 @@ class AppTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final String? Function(String? v)? validator;
+  final void Function(String)? onChanged;
+  final void Function(String?)? onSaved;
+  final void Function(String)? onFieldSubmitted;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +33,9 @@ class AppTextFormField extends StatelessWidget {
       controller: textEditingController,
       cursorColor: Colors.redAccent,
       keyboardType: keyboardType,
+      onChanged: onChanged,
+      onSaved:onSaved,
+      onFieldSubmitted: onFieldSubmitted,
       decoration:  InputDecoration(
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon:suffixIcon,

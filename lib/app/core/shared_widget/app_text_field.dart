@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sezon_app/app/core/shared_widget/app_text.dart';
+
 class AppTextField extends StatelessWidget {
   const AppTextField({
     Key? key,
     required this.hinttext,
     required this.labeltext,
-     this.prefixIcon,
-     this.keyboardType= TextInputType.text,
-    this.obscuresText=false,
+    this.prefixIcon,
+    this.keyboardType = TextInputType.text,
+    this.obscuresText = false,
     required this.controller,
     this.suffixIcon,
-
   }) : super(key: key);
   final String hinttext;
   final String labeltext;
@@ -22,22 +22,17 @@ class AppTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final bool obscuresText;
 
-
-
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       style: const TextStyle(color: Colors.black),
-      // expands: true,
-      // maxLines: null,
-
       controller: controller,
       keyboardType: keyboardType,
       obscureText: obscuresText,
       decoration: InputDecoration(
         // labelStyle: TextStyle(color: Colors.black),
         floatingLabelBehavior: FloatingLabelBehavior.always,
-floatingLabelStyle: TextStyle(color: Colors.redAccent),
+        floatingLabelStyle: const TextStyle(color: Colors.redAccent),
 
 // floatingLabelStyle: const TextStyle(color: Colors.black),
 
@@ -46,11 +41,9 @@ floatingLabelStyle: TextStyle(color: Colors.redAccent),
         labelText: labeltext,
         // label: AppText(text:,fontSize: 18.sp,),
         prefixIcon: Icon(prefixIcon),
-        suffixIcon: suffixIcon ,
-        enabledBorder:  buildOutlineInputBorder(),
-        focusedBorder: buildOutlineInputBorder(color:Colors.redAccent),
-
-
+        suffixIcon: suffixIcon,
+        enabledBorder: buildOutlineInputBorder(),
+        focusedBorder: buildOutlineInputBorder(color: Colors.redAccent),
       ),
     );
   }
@@ -62,11 +55,3 @@ floatingLabelStyle: TextStyle(color: Colors.redAccent),
     );
   }
 }
-
-
-
-
-
-
-
-

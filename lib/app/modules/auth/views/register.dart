@@ -50,7 +50,7 @@ class RegisterScreen extends StatelessWidget {
                             AppTextFormField(
                               textEditingController: emailController,
                               label: 'email'.tr,
-                              keyboardType: TextInputType.name,
+                              keyboardType: TextInputType.emailAddress,
                               validator: (v) {
                                 if (emailController.text.isEmpty) {
                                   return 'email_is_required'.tr;

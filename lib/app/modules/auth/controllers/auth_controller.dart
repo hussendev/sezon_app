@@ -28,7 +28,7 @@ class AuthGetXController extends GetxController {
         // firebase save data in local storage and get it from local storage  and i check if it is null or not in splash screen
         loading.value=false;
       }else{
-        context.showSnackBar(message: processResponse.message,error: true);
+        // context.showSnackBar(message: processResponse.message,error: true);
       }
       loading.value=false;
     return processResponse.success;

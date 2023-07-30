@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sezon_app/app/core/shared_widget/app_text.dart';
-import 'package:sezon_app/app/core/shared_widget/app_text_field.dart';
 import 'package:sezon_app/app/modules/admin/controllers/admin_controller.dart';
 import 'package:sezon_app/app/modules/auth/views/widgets/app_elevation_button.dart';
 import 'package:sezon_app/app/modules/auth/views/widgets/app_text_form_field.dart';
+import 'package:sezon_app/app/modules/home/models/notification.dart';
 import 'package:sezon_app/app/modules/home/models/product.dart';
 import 'package:sezon_app/app/modules/home/views/widgets/app_build_type.dart';
-import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 
 import '../../../home/models/category.dart';
 
@@ -187,4 +186,12 @@ class AddProductAdminScreen extends GetView<AdminController> {
     purchaseCount: 0,
     categoryId: controller.selectedCategory.value, id: controller.products.length+1
   );
+
+  // NotificationModel get notification => NotificationModel(
+  //   title: 'تم اضافة منتج جديد',
+  //   body: 'تم اضافة منتج جديد بواسطة المتجر',
+  //   date: '${DateTime.now().day}-${DateTime.now().month}-${DateTime.now().year}',
+  //   image: controller.productImageController.text,
+  //   id: null
+  // );
 }

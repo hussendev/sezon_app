@@ -1,7 +1,5 @@
 import 'package:sezon_app/app/utils/storage/cach_helper.dart';
 
-import 'db_controller.dart';
-
 
 abstract class DbOperations<Model> {
   final CacheHelper  cacheHelper = CacheHelper();

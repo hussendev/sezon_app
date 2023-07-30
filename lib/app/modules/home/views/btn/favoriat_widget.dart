@@ -32,6 +32,7 @@ class FavoriteWidget extends StatelessWidget {
                       itemCount: product.length,
                       itemBuilder: (context, index) {
                         return BuildFavoriteOrNotificaitonWidget(
+                          notification: null,
                           isFavorite: true,
                           product: product[index],
                         );

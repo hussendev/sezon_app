@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sezon_app/app/modules/home/models/notification.dart';
+import 'package:sezon_app/app/modules/home/services/notifications_helper.dart';
 
 import '../models/category.dart';
 import '../models/product.dart';
@@ -24,6 +26,7 @@ class FBHomeController{
     ).get();
   }
 
+  
   Future<bool> uploadImage(File image) async {
     try {
       await _firebaseStorage.ref('products/${image.path}').putFile(image);
@@ -39,22 +42,7 @@ class FBHomeController{
     return await _firebaseStorage.ref('products/$path').getDownloadURL();
   }
 
-  //selectImage
-  // selectImage () async {
-  //   // ignore: deprecated_member_use
-  //   var image = await ImagePicker.platform.pickImage(source: ImageSource.gallery);
-  //   return image;
-  // }
-
-  // selectImage() async {
-  //   var image = await _imagePicker.pickImage(source: ImageSource.camera);
-  //   //stor it in firebase storage
-  //
-  //
-  //   await   _firebaseStorage.ref('products/${image!.path}').putFile(File(image.name));
-  //   return image;
-  // }
-
+ 
   Future<bool> addProduct(Product product) async {
     try {
       await _firebaseFirestore.collection('products').add(product.toJson());
@@ -62,6 +50,31 @@ class FBHomeController{
     } catch (e) {
       return false;
     }
+  }
+
+  Future<bool> addNotification(NotificationModel notification) async {
+    try {
+
+
+      await _firebaseFirestore.collection('notifications').add(notification.toJson()).then((value)async {
+        await NotificationHelper.sendNotificationToAllUsers(
+          title: notification.title,
+          body: notification.body,
+topic: 'all',
+        );
+      });
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  Future<QuerySnapshot<NotificationModel>> getNotifications() async {
+    return await _firebaseFirestore.collection(
+        'notifications').withConverter<NotificationModel>(
+      fromFirestore: (snapshot, _) => NotificationModel.fromJson(snapshot.data()!),
+      toFirestore: (notification, _) => notification.toJson(),
+    ).get();
   }
 
   Future<QuerySnapshot<Product>> getProductsByCategory({required int categoryId,int productId=0}) async {
@@ -98,9 +111,6 @@ class FBHomeController{
     yield*  _firebaseFirestore.collection('orders').snapshots();
   }
 
-  Stream<QuerySnapshot> getNotifications() async* {
-    yield*  _firebaseFirestore.collection('notifications').snapshots();
-  }
 
   Stream<QuerySnapshot> getFavorites() async* {
     yield*  _firebaseFirestore.collection('favorites').snapshots();

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sezon_app/app/modules/favorite/controllers/favorite_controller.dart';
+import 'package:sezon_app/app/modules/home/models/notification.dart';
 import '../../../../core/shared_widget/app_text.dart';
 import 'package:sezon_app/app/utils/extensions/sized_box_extension.dart';
 
@@ -14,8 +15,11 @@ class BuildFavoriteOrNotificaitonWidget extends StatelessWidget {
     super.key,
     this.isFavorite = false,
     required this.product,
+    required this.notification,
+    
   });
 
+  NotificationModel? notification;
   bool isFavorite;
   Product? product;
 
@@ -64,12 +68,16 @@ class BuildFavoriteOrNotificaitonWidget extends StatelessWidget {
             ],
           )
         : ListTile(
-            title: const Text('Item'),
-            subtitle: const Text('Sub Title'),
+            title:  Text(notification!.title),
+            subtitle:  Text(notification!.body),
             trailing: Container(
               height: 50,
               width: 50,
               decoration: BoxDecoration(
+                image:  DecorationImage(
+                  image: NetworkImage(notification!.image),
+                  fit: BoxFit.cover,
+                ),
                 color: Colors.grey,
                 borderRadius: BorderRadius.all(Radius.circular(8.r)),
               ),
